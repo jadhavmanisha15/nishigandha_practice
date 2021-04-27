@@ -17,26 +17,28 @@ public class DuplicateString {
 
 
 		Map<String, Integer> map=new HashMap<String, Integer>();
-		//int count ;
+		int count ;
 
 		for (int i = 0; i < a.length; i++)
 		{ 
+			count=1;
 			for(int j=i+1;j<a.length;j++)
 			{
 				if(a[i].equals(a[j]))
 				{
 
-					if(map.containsKey(a[i]))
-					{
-						map.put(a[i], map.get(a[i])+1);
-					}
-					
-					  else { 
-						  map.put(a[i], 1); 
-						  }
-					 
+					count++; 
 				}	
+				 
 			}
+			if(!map.containsKey(a[i]))
+			{
+				map.put(a[i], count);
+			}
+			
+			
+			
+	
 		}
 
 
@@ -46,6 +48,7 @@ public class DuplicateString {
 
 			//System.out.println("hghhafdshgf");
 			System.out.print(entry.getKey()+" "+entry.getValue());
+			System.out.println();
 		}
 	}
 
